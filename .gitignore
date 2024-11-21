@@ -4,3 +4,4 @@
 /node_modules
 /chave-api.txt
 /index.html
+/.env.local
