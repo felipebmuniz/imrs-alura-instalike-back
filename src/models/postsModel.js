@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { ObjectId } from "mongodb";
 import conectarAoBanco from "../config/dbConfig.js";
 
@@ -26,8 +27,10 @@ export const updatePost = async (id, update) => {
   const db = connection.db("imersao-instabytes");
   const collection = db.collection("posts");
 
+  const objID = ObjectId.createFromHexString(id);
+
   return collection.updateOne(
-    { _id: new ObjectId(String(id)) },
+    { _id: new ObjectId(objID) },
     {
       $set: update,
     },
